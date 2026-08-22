@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Krishna Bharath Varma</title>
+  <meta name="description" content="Personal site of Krishna Bharath Varma — work, projects, and contact.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a class="nav__brand" href="#top">KBV</a>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+        <span class="sr-only">Menu</span>
+        <span class="nav__bars" aria-hidden="true"></span>
+      </button>
+      <ul class="nav__menu" id="nav-menu">
+        <li><a href="#about">About</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap">
+        <p class="hero__eyebrow">Hello, I'm</p>
+        <h1 class="hero__title">Krishna Bharath Varma</h1>
+        <p class="hero__lede">
+          A short line about what you do and who you do it for. Replace this with
+          your own positioning — one or two sentences is plenty.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#projects">See my work</a>
+          <a class="btn btn--ghost" href="#contact">Get in touch</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="wrap">
+        <h2 class="section__title">About</h2>
+        <div class="prose">
+          <p>
+            A paragraph about your background, what you care about, and the kind of
+            problems you like working on.
+          </p>
+          <p>
+            A second paragraph for context — where you've worked, what you're
+            currently focused on, or what you're looking for next.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="work">
+      <div class="wrap">
+        <h2 class="section__title">Experience</h2>
+        <ol class="timeline">
+          <li class="timeline__item">
+            <div class="timeline__meta">2024 — Present</div>
+            <h3 class="timeline__role">Role title</h3>
+            <p class="timeline__org">Company or organisation</p>
+            <p class="timeline__desc">What you owned, built, or improved. One or two lines.</p>
+          </li>
+          <li class="timeline__item">
+            <div class="timeline__meta">2022 — 2024</div>
+            <h3 class="timeline__role">Role title</h3>
+            <p class="timeline__org">Company or organisation</p>
+            <p class="timeline__desc">What you owned, built, or improved. One or two lines.</p>
+          </li>
+          <li class="timeline__item">
+            <div class="timeline__meta">2020 — 2022</div>
+            <h3 class="timeline__role">Role title</h3>
+            <p class="timeline__org">Company or organisation</p>
+            <p class="timeline__desc">What you owned, built, or improved. One or two lines.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="wrap">
+        <h2 class="section__title">Projects</h2>
+        <div class="cards">
+          <article class="card">
+            <h3 class="card__title">Project one</h3>
+            <p class="card__desc">What it does and why it exists, in a sentence or two.</p>
+            <ul class="tags">
+              <li>TypeScript</li><li>React</li>
+            </ul>
+            <a class="card__link" href="#">View project<span aria-hidden="true"> →</span></a>
+          </article>
+          <article class="card">
+            <h3 class="card__title">Project two</h3>
+            <p class="card__desc">What it does and why it exists, in a sentence or two.</p>
+            <ul class="tags">
+              <li>Python</li><li>Postgres</li>
+            </ul>
+            <a class="card__link" href="#">View project<span aria-hidden="true"> →</span></a>
+          </article>
+          <article class="card">
+            <h3 class="card__title">Project three</h3>
+            <p class="card__desc">What it does and why it exists, in a sentence or two.</p>
+            <ul class="tags">
+              <li>Go</li><li>Docker</li>
+            </ul>
+            <a class="card__link" href="#">View project<span aria-hidden="true"> →</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="contact">
+      <div class="wrap">
+        <h2 class="section__title">Contact</h2>
+        <p class="prose">
+          The best way to reach me is by email. I'm happy to talk about new work,
+          collaborations, or anything you're building.
+        </p>
+        <p class="contact__links">
+          <a class="btn btn--primary" href="mailto:krishnabharathvarma@gmail.com">Email me</a>
+          <a class="btn btn--ghost" href="https://github.com/krishnabharathvarma" rel="me noopener">GitHub</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; <span id="year">2026</span> Krishna Bharath Varma</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
