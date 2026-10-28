@@ -1,0 +1,196 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: #D8EAC4; font-family: "Nunito", sans-serif; }
+    .stage { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: visible; }
+    .cam { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; transform-origin: 0 0; }
+
+    #a-title { position: absolute; left: 0; top: 330px; width: 1920px; text-align: center; font-weight: 900; font-size: 112px; line-height: 1; color: #3A2410; letter-spacing: -0.01em; }
+    #a-title .w { display: inline-block; }
+    #a-legBL, #a-legFL, #a-legBR, #a-legFR, #a-eyesOpen { opacity: 0; }
+    #a-eyesClosed { opacity: 1; }
+    #a-zs { font-family: "Nunito", sans-serif; font-weight: 900; fill: #5A4A8A; }
+  </style>
+  <div id="root" data-composition-id="part1" data-width="1920" data-height="1080">
+    <div id="a-cam" class="cam">
+      <svg class="stage" viewBox="0 0 1920 1080" data-layout-allow-overflow>
+        
+      <defs>
+        <linearGradient id="a-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F6DFA8" /><stop offset="1" stop-color="#D8EAC4" /></linearGradient>
+      </defs>
+      <rect x="-200" y="-200" width="2320" height="1480" fill="url(#a-sky)" />
+      <path d="M -200 760 Q 200 640 600 720 T 1300 700 T 2120 690 L 2120 980 L -200 980 Z" fill="#A9C98A" />
+      <rect x="314" y="680" width="10" height="60" fill="#6E9358" /><circle cx="319" cy="670" r="40" fill="#7FA867" /><rect x="394" y="690" width="10" height="60" fill="#6E9358" /><circle cx="399" cy="680" r="32" fill="#7FA867" /><rect x="854" y="680" width="10" height="60" fill="#6E9358" /><circle cx="859" cy="670" r="44" fill="#7FA867" /><rect x="1254" y="685" width="10" height="60" fill="#6E9358" /><circle cx="1259" cy="675" r="36" fill="#7FA867" /><rect x="1334" y="695" width="10" height="60" fill="#6E9358" /><circle cx="1339" cy="685" r="30" fill="#7FA867" /><rect x="1494" y="680" width="10" height="60" fill="#6E9358" /><circle cx="1499" cy="670" r="42" fill="#7FA867" />
+      <g id="a-treeL"><path d="M 120 980 L 150 420 Q 160 360 200 330 L 230 420 L 250 980 Z" fill="#6B4A2E" />
+        <circle cx="120" cy="300" r="150" fill="#3F7A3A" /><circle cx="260" cy="240" r="130" fill="#4A8A40" /><circle cx="40" cy="190" r="120" fill="#4A8A40" /><circle cx="200" cy="120" r="110" fill="#3F7A3A" /></g>
+      <g id="a-treeR"><path d="M 1700 980 L 1730 420 L 1790 420 L 1820 980 Z" fill="#6B4A2E" />
+        <circle cx="1700" cy="320" r="140" fill="#4A8A40" /><circle cx="1840" cy="260" r="150" fill="#3F7A3A" /><circle cx="1760" cy="150" r="120" fill="#4A8A40" /></g>
+      <path d="M -200 930 Q 300 900 800 925 T 1700 915 T 2120 925 L 2120 1300 L -200 1300 Z" fill="#6E9B45" />
+      <path d="M -200 1010 Q 400 985 900 1005 T 2120 1000 L 2120 1300 L -200 1300 Z" fill="#5E8C3A" />
+      <g fill="#4F7A30">
+        <path d="M 60 1030 l 14 -40 l 10 38 l 12 -48 l 10 50 Z" /><path d="M 520 1040 l 12 -34 l 10 32 l 12 -40 l 8 42 Z" />
+        <path d="M 1180 1035 l 12 -36 l 10 34 l 12 -44 l 8 46 Z" /><path d="M 1820 1032 l 14 -42 l 10 40 l 12 -46 l 10 48 Z" />
+      </g>
+        <g transform="translate(900,520)">
+      <g id="a-lion">
+        <g id="a-legBL"><rect x="150" y="300" width="62" height="140" rx="30" fill="#C98A2E" /></g>
+        <g id="a-legFL"><rect x="430" y="300" width="62" height="140" rx="30" fill="#C98A2E" /></g>
+        <g id="a-torso">
+          <g id="a-tail"><path d="M 140 260 C 70 250 40 190 70 140" fill="none" stroke="#C98A2E" stroke-width="18" stroke-linecap="round" />
+            <ellipse cx="70" cy="136" rx="24" ry="28" fill="#A04A1A" /></g>
+          <ellipse cx="320" cy="275" rx="205" ry="105" fill="#E2A94A" />
+          <ellipse cx="330" cy="330" rx="150" ry="44" fill="#F0C878" />
+          <g id="a-head">
+            <polygon points="540.0,43.0 558.1,72.6 585.1,51.0 592.0,84.9 624.8,73.9 619.7,108.2 654.3,109.0 637.7,139.4 670.0,152.1 644.0,175.0 670.0,197.9 637.7,210.6 654.3,241.0 619.7,241.8 624.8,276.1 592.0,265.1 585.1,299.0 558.1,277.4 540.0,307.0 521.9,277.4 494.9,299.0 488.0,265.1 455.2,276.1 460.3,241.8 425.7,241.0 442.3,210.6 410.0,197.9 436.0,175.0 410.0,152.1 442.3,139.4 425.7,109.0 460.3,108.2 455.2,73.9 488.0,84.9 494.9,51.0 521.9,72.6" fill="#A04A1A" />
+            <polygon points="540.0,63.0 556.0,84.4 578.3,69.8 586.0,95.3 612.0,89.2 610.5,115.9 637.0,119.0 626.5,143.5 650.3,155.6 632.0,175.0 650.3,194.4 626.5,206.5 637.0,231.0 610.5,234.1 612.0,260.8 586.0,254.7 578.3,280.2 556.0,265.6 540.0,287.0 524.0,265.6 501.7,280.2 494.0,254.7 468.0,260.8 469.5,234.1 443.0,231.0 453.5,206.5 429.7,194.4 448.0,175.0 429.7,155.6 453.5,143.5 443.0,119.0 469.5,115.9 468.0,89.2 494.0,95.3 501.7,69.8 524.0,84.4" fill="#7E3612" opacity="0.35" />
+            <circle cx="482" cy="92" r="26" fill="#C98A2E" /><circle cx="482" cy="92" r="12" fill="#F4DCA0" />
+            <circle cx="602" cy="92" r="26" fill="#C98A2E" /><circle cx="602" cy="92" r="12" fill="#F4DCA0" />
+            <ellipse cx="545" cy="180" rx="80" ry="84" fill="#E2A94A" />
+            <ellipse cx="578" cy="222" rx="50" ry="36" fill="#F4DCA0" />
+            <g id="a-eyesOpen"><ellipse cx="520" cy="165" rx="10" ry="12" fill="#2A1A10" /><ellipse cx="592" cy="163" rx="10" ry="12" fill="#2A1A10" />
+              <circle cx="523" cy="160" r="3.5" fill="#fff" /><circle cx="595" cy="158" r="3.5" fill="#fff" /></g>
+            <g id="a-eyesClosed" opacity="0"><path d="M 508 166 Q 520 175 532 166" fill="none" stroke="#2A1A10" stroke-width="5" stroke-linecap="round" />
+              <path d="M 580 164 Q 592 173 604 164" fill="none" stroke="#2A1A10" stroke-width="5" stroke-linecap="round" /></g>
+            <g id="a-eyesHappy" opacity="0"><path d="M 508 168 Q 520 155 532 168" fill="none" stroke="#2A1A10" stroke-width="5" stroke-linecap="round" />
+              <path d="M 580 166 Q 592 153 604 166" fill="none" stroke="#2A1A10" stroke-width="5" stroke-linecap="round" /></g>
+            <g id="a-brows" opacity="0"><path d="M 500 140 L 535 152" stroke="#2A1A10" stroke-width="7" stroke-linecap="round" />
+              <path d="M 612 138 L 577 150" stroke="#2A1A10" stroke-width="7" stroke-linecap="round" /></g>
+            <path d="M 572 200 L 598 200 L 585 214 Z" fill="#5A2E1A" />
+            <path id="a-mouth" d="M 566 232 Q 585 242 604 232" fill="none" stroke="#5A2E1A" stroke-width="4.5" stroke-linecap="round" />
+            <path id="a-smile" opacity="0" d="M 556 228 Q 585 258 614 228" fill="none" stroke="#5A2E1A" stroke-width="5" stroke-linecap="round" />
+            <g id="a-roar" opacity="0"><ellipse cx="586" cy="246" rx="30" ry="26" fill="#7A1E1E" />
+              <path d="M 566 228 L 572 240 L 578 228 Z M 594 228 L 600 240 L 606 228 Z" fill="#FFF8EA" /><ellipse cx="586" cy="260" rx="14" ry="7" fill="#C8545A" /></g>
+          </g>
+        </g>
+        <g id="a-legBR"><rect x="205" y="305" width="64" height="135" rx="30" fill="#E2A94A" /></g>
+        <g id="a-legFR"><rect x="480" y="305" width="64" height="135" rx="30" fill="#E2A94A" />
+          <circle cx="496" cy="436" r="9" fill="#F0C878" /><circle cx="512" cy="438" r="9" fill="#F0C878" /><circle cx="528" cy="436" r="9" fill="#F0C878" /></g>
+      </g></g>
+        <g id="a-zs"><text id="a-z1" x="1520" y="610" font-size="44" opacity="0">z</text><text id="a-z2" x="1560" y="570" font-size="56" opacity="0">z</text><text id="a-z3" x="1610" y="520" font-size="70" opacity="0">Z</text></g>
+        <g transform="translate(0,894)"><g id="a-mwrap"><g id="a-mflip">
+      <g id="a-mouse"><g id="a-mbody">
+        <path id="a-mtail" d="M 18 48 C -6 44 -14 22 6 14" fill="none" stroke="#E8A0A6" stroke-width="3.5" stroke-linecap="round" />
+        <ellipse cx="40" cy="62" rx="9" ry="5" fill="#77716B" /><ellipse cx="72" cy="62" rx="9" ry="5" fill="#77716B" />
+        <ellipse cx="54" cy="44" rx="38" ry="22" fill="#9A948E" />
+        <g id="a-mhead">
+          <ellipse cx="90" cy="38" rx="21" ry="17" fill="#B2ACA5" />
+          <circle cx="80" cy="20" r="13" fill="#B2ACA5" /><circle cx="80" cy="20" r="7.5" fill="#E8A0A6" />
+          <circle id="a-meye" cx="96" cy="33" r="3.6" fill="#2A1A10" />
+          <circle cx="110" cy="40" r="4.5" fill="#D86A78" />
+          <g id="a-mteeth" opacity="0"><rect x="104" y="46" width="4" height="7" fill="#FFF8EA" /><rect x="109" y="46" width="4" height="7" fill="#FFF8EA" /></g>
+          <path d="M 104 42 L 122 38 M 104 44 L 122 46" stroke="#77716B" stroke-width="1.5" />
+        </g>
+      </g></g></g></g></g>
+        <g transform="translate(900,520)">
+      <g id="a-paw">
+        <ellipse cx="612" cy="424" rx="80" ry="22" fill="#E2A94A" />
+        <circle cx="668" cy="424" r="11" fill="#F0C878" /><circle cx="680" cy="412" r="9" fill="#F0C878" /><circle cx="680" cy="434" r="9" fill="#F0C878" />
+      </g></g>
+      </svg>
+    </div>
+    <div id="a-title"><span class="w">The</span> <span class="w">Lion</span> <span class="w">and</span> <span class="w">the</span> <span class="w">Mouse</span></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      
+      // camera: centre (cx, cy) of the stage at scale s
+      const cam = (sel, t, s, cx, cy, d, ease) => tl.to(sel, { scale: s, x: 960 - s * cx, y: 540 - s * cy, duration: d, ease: ease || "power2.inOut" }, t);
+      // seeded shake: deterministic offsets, no randomness
+      const shake = (sel, t, d, amp, hz) => {
+        const n = Math.max(2, Math.round(d * hz));
+        const kf = [];
+        for (let i = 1; i <= n; i++) kf.push({ x: Math.sin(i * 2.7) * amp * (1 - i / (n + 1)), y: Math.cos(i * 1.9) * amp * 0.5 * (1 - i / (n + 1)), duration: d / n });
+        kf.push({ x: 0, y: 0, duration: 0.05 });
+        tl.to(sel, { keyframes: kf, ease: "none" }, t);
+      };
+      const show = (sel, t, d) => tl.to(sel, { opacity: 1, duration: d || 0.12 }, t);
+      const hide = (sel, t, d) => tl.to(sel, { opacity: 0, duration: d || 0.12 }, t);
+
+      // ---- starting pose: lion asleep, lying down; mouse off-screen left ----
+      tl.set("#a-torso", { y: 60 }, 0);
+      tl.set("#a-head", { rotation: 14, svgOrigin: "470 250" }, 0);
+      tl.set("#a-mwrap", { x: -180 }, 0);
+      tl.set("#a-cam", { scale: 1, x: 0, y: 0 }, 0);
+
+      // ---- title (0 - 3.6) ----
+      tl.fromTo("#a-title .w", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, stagger: 0.12, ease: "power4.out" }, 0.3);
+      tl.to("#a-title", { opacity: 0, filter: "blur(8px)", duration: 0.3, ease: "power3.in" }, 3.5);
+
+      // ---- sleeping: breathing and drifting z's (acting, not decoration) ----
+      tl.to("#a-torso", { y: 54, duration: 1.4, repeat: 6, yoyo: true, ease: "sine.inOut" }, 0);
+      [["#a-z1", 0.4], ["#a-z2", 0.9], ["#a-z3", 1.4], ["#a-z1", 3.4], ["#a-z2", 3.9], ["#a-z3", 4.4], ["#a-z1", 6.4], ["#a-z2", 6.9]].forEach(([z, t]) => {
+        tl.fromTo(z, { opacity: 0, y: 0 }, { opacity: 1, y: -30, duration: 0.8, ease: "sine.out" }, t);
+        tl.to(z, { opacity: 0, y: -60, duration: 0.8, ease: "sine.in" }, t + 1.2);
+      });
+
+      // ---- l1 (4.4 - 10.8): the mouse runs through the forest and across the paw ----
+      tl.to("#a-mwrap", { x: 1380, duration: 5.6, ease: "none" }, 4.4);
+      tl.to("#a-mouse", { y: -6, duration: 0.14, repeat: 39, yoyo: true, ease: "sine.inOut" }, 4.4);
+      tl.to("#a-mwrap", { x: 1500, y: -24, duration: 0.35, ease: "power2.out" }, 10.0);
+      tl.to("#a-mwrap", { x: 1620, y: 0, duration: 0.35, ease: "power2.in" }, 10.35);
+      tl.to("#a-mwrap", { x: 1660, duration: 0.3, ease: "expo.out" }, 10.7);
+      tl.to("#a-paw", { y: 3, duration: 0.1, yoyo: true, repeat: 1 }, 10.2);
+      // lion stirs: tail flick
+      tl.to("#a-tail", { rotation: -12, svgOrigin: "140 260", duration: 0.25, yoyo: true, repeat: 1 }, 11.0);
+
+      // ---- l2 (12.2 - 18.3): wakes with a start, roars, traps the mouse ----
+      tl.to("#a-eyesClosed", { opacity: 0, duration: 0.05 }, 12.75);
+      tl.to("#a-eyesOpen", { opacity: 1, duration: 0.05 }, 12.75);
+      tl.to("#a-head", { rotation: -10, y: -30, svgOrigin: "470 250", duration: 0.25, ease: "back.out(2.2)" }, 12.7);
+      tl.to("#a-torso", { y: 40, duration: 0.25, ease: "back.out(2)" }, 12.7);
+      // mouse jumps in fright and turns to face the lion
+      tl.to("#a-mouse", { y: -40, duration: 0.2, ease: "power2.out" }, 12.85);
+      tl.to("#a-mouse", { y: 0, duration: 0.2, ease: "power2.in" }, 13.05);
+      tl.set("#a-mflip", { scaleX: -1, x: 120 }, 13.0);
+      // the roar: anticipation, then mouth wide, brows down, camera shakes
+      tl.to("#a-head", { rotation: -4, x: -10, svgOrigin: "470 250", duration: 0.35, ease: "power2.in" }, 13.5);
+      tl.to("#a-brows", { opacity: 1, duration: 0.1 }, 13.7);
+      tl.to("#a-mouth", { opacity: 0, duration: 0.05 }, 13.95);
+      tl.to("#a-roar", { opacity: 1, duration: 0.05 }, 13.95);
+      tl.to("#a-head", { rotation: -14, x: 24, svgOrigin: "470 250", duration: 0.2, ease: "expo.out" }, 13.95);
+      shake("#a-cam", 14.0, 1.2, 10, 22);
+      tl.to("#a-mwrap", { x: 1690, duration: 0.3, ease: "expo.out" }, 14.05);
+      tl.to("#a-roar", { opacity: 0, duration: 0.1 }, 15.4);
+      tl.to("#a-mouth", { opacity: 1, duration: 0.1 }, 15.4);
+      tl.to("#a-head", { rotation: -8, x: 0, svgOrigin: "470 250", duration: 0.4, ease: "power2.out" }, 15.4);
+      // paw lifts, then slams down on the mouse
+      tl.to("#a-paw", { x: 150, y: -130, rotation: -10, svgOrigin: "560 424", duration: 0.35, ease: "power2.out" }, 15.75);
+      tl.to("#a-paw", { x: 165, y: -20, rotation: 0, svgOrigin: "560 424", duration: 0.12, ease: "power3.in" }, 16.12);
+      shake("#a-cam", 16.24, 0.4, 8, 24);
+      tl.to("#a-mhead", { y: 4, duration: 0.1 }, 16.24);
+
+      // ---- l3 + m1 (20.7 - 28.1): push in; the mouse begs ----
+      cam("#a-cam", 19.6, 1.9, 1560, 830, 1.2);
+      tl.to("#a-meye", { attr: { r: 6 }, duration: 0.2, ease: "back.out(3)" }, 20.8);
+      shake("#a-mbody", 21.0, 2.6, 2.5, 18);
+      tl.to("#a-mhead", { rotation: -14, svgOrigin: "80 40", duration: 0.35, ease: "power2.out" }, 24.0);
+      tl.to("#a-mhead", { rotation: -6, svgOrigin: "80 40", duration: 0.3, yoyo: true, repeat: 5, ease: "sine.inOut" }, 24.4);
+      tl.to("#a-brows", { opacity: 0, duration: 0.2 }, 26.0);
+      tl.to("#a-head", { rotation: -2, svgOrigin: "470 250", duration: 0.5, ease: "power2.inOut" }, 26.0);
+
+      // ---- l4 (29.7 - 37.8): the lion laughs, amused, and lets the mouse go ----
+      cam("#a-cam", 29.3, 1.25, 1250, 740, 1.0);
+      tl.to("#a-mouth", { opacity: 0, duration: 0.05 }, 29.95);
+      tl.to("#a-roar", { opacity: 1, duration: 0.05 }, 29.95);
+      tl.to("#a-eyesOpen", { opacity: 0, duration: 0.05 }, 29.95);
+      tl.to("#a-eyesHappy", { opacity: 1, duration: 0.05 }, 29.95);
+      tl.to("#a-head", { rotation: -16, svgOrigin: "470 250", duration: 0.22, yoyo: true, repeat: 9, ease: "sine.inOut" }, 30.0);
+      tl.to("#a-torso", { y: 34, duration: 0.22, yoyo: true, repeat: 9, ease: "sine.inOut" }, 30.05);
+      tl.to("#a-roar", { opacity: 0, duration: 0.1 }, 32.3);
+      tl.to("#a-smile", { opacity: 1, duration: 0.1 }, 32.3);
+      tl.to("#a-head", { rotation: 2, svgOrigin: "470 250", duration: 0.5, ease: "power2.out" }, 32.5);
+      // "let the mouse go": paw lifts away
+      tl.to("#a-paw", { x: 60, y: -110, rotation: -14, svgOrigin: "560 424", duration: 0.5, ease: "power2.out" }, 35.2);
+      tl.to("#a-meye", { attr: { r: 3.6 }, duration: 0.2 }, 35.4);
+      tl.to("#a-mhead", { rotation: 0, svgOrigin: "80 40", duration: 0.2 }, 35.4);
+      tl.to("#a-mouse", { y: -26, duration: 0.18, yoyo: true, repeat: 1, ease: "power2.out" }, 35.6);
+      tl.to("#a-mwrap", { x: 2100, duration: 1.6, ease: "power2.in" }, 36.1);
+      tl.to("#a-mouse", { y: -6, duration: 0.12, repeat: 13, yoyo: true, ease: "sine.inOut" }, 36.1);
+      tl.set("#a-mflip", { scaleX: 1, x: 0 }, 36.0);
+      tl.to("#a-paw", { x: 0, y: 0, rotation: 0, svgOrigin: "560 424", duration: 0.6, ease: "power2.inOut" }, 36.6);
+      // hand-off: the light dims to the next day
+      tl.to("#a-cam", { opacity: 0, duration: 0.8, ease: "power2.in" }, 38.2);
+      window.__timelines["part1"] = tl;
+    })();
+  </script>
+</template>
