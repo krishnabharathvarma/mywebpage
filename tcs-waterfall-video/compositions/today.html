@@ -1,0 +1,61 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: #1f1a17; font-family: "Inter", sans-serif; color: #e4e0da; }
+    .td-shot { position: absolute; inset: 0; }
+    .td-frame { position: absolute; left: 96px; top: 96px; width: 1180px; height: 888px; overflow: hidden; }
+    .td-frame img { position: absolute; left: 0; top: 0; width: 1180px; height: 888px; object-fit: cover; }
+    .td-text { position: absolute; left: 1350px; top: 300px; width: 400px; }
+    .td-where { font-size: 30px; font-weight: 700; letter-spacing: 0.04em; color: #1e86b8; text-transform: uppercase; }
+    .td-what { font-family: "Oswald", sans-serif; font-weight: 600; font-size: 60px; line-height: 1.12; margin-top: 18px; color: #f2efea; }
+    #td-head { position: absolute; left: 1350px; top: 150px; font-size: 30px; font-weight: 700; color: #a49b92; letter-spacing: 0.04em; }
+  </style>
+  <div id="root" data-composition-id="today" data-width="1920" data-height="1080">
+    <div id="td-head">THE SITE TODAY</div>
+
+    <div id="td-s1" class="td-shot clip" data-start="0" data-duration="3.5">
+      <div class="td-frame"><img id="td-img1" src="assets/img/site-wet-patch.jpg" alt="Wet patch on the paving" /></div>
+      <div class="td-text" id="td-t1">
+        <div class="td-where">Front-left</div>
+        <div class="td-what">A wet patch on the paving: the lower pond leaks</div>
+      </div>
+    </div>
+
+    <div id="td-s2" class="td-shot clip" data-start="3.5" data-duration="3.5">
+      <div class="td-frame"><img id="td-img2" src="assets/img/site-rock-top.jpg" alt="Old cable on the rock top" /></div>
+      <div class="td-text" id="td-t2">
+        <div class="td-where">Rock top</div>
+        <div class="td-what">Old cable and corroded fittings left on the rock</div>
+      </div>
+    </div>
+
+    <div id="td-s3" class="td-shot clip" data-start="7" data-duration="3.5">
+      <div class="td-frame"><img id="td-img3" src="assets/img/site-side-basin.jpg" alt="Side basin with cracked dry silt" /></div>
+      <div class="td-text" id="td-t3">
+        <div class="td-where">Side basin</div>
+        <div class="td-what">Cracked, dry silt where the water should run</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#td-head", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.1);
+      [1, 2, 3].forEach((i) => {
+        const t0 = (i - 1) * 3.5;
+        // whip in: the frame arrives from the right with a horizontal smear
+        tl.fromTo("#td-s" + i + " .td-frame", { x: 260, filter: "blur(14px)" }, { x: 0, filter: "blur(0px)", duration: 0.45, ease: "expo.out" }, t0);
+        tl.fromTo("#td-img" + i, { scale: 1.0 }, { scale: 1.07, duration: 3.5, ease: "none" }, t0);
+        tl.fromTo("#td-t" + i + " .td-where", { opacity: 0 }, { opacity: 1, duration: 0.2 }, t0 + 0.25);
+        tl.fromTo("#td-t" + i + " .td-what", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.out" }, t0 + 0.35);
+        if (i < 3) {
+          tl.to("#td-s" + i + " .td-frame", { x: -260, filter: "blur(14px)", opacity: 0, duration: 0.25, ease: "power3.in" }, t0 + 3.25);
+          tl.to("#td-t" + i, { opacity: 0, duration: 0.2 }, t0 + 3.25);
+        }
+      });
+      // the last photo hands off to the diagram by flooding to the concrete ground
+      tl.to("#root", { backgroundColor: "#cfcac2", duration: 0.4, ease: "power2.inOut" }, 10.1);
+      tl.to("#td-s3, #td-head", { opacity: 0, duration: 0.3, ease: "power3.in" }, 10.1);
+      window.__timelines["today"] = tl;
+    })();
+  </script>
+</template>

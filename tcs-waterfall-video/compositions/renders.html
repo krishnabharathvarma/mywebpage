@@ -1,0 +1,60 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: #e6e8ea; font-family: "Inter", sans-serif; color: #1f1a17; }
+    .rn-shot { position: absolute; inset: 0; overflow: hidden; }
+    .rn-shot img { position: absolute; left: 0; top: -20px; width: 1920px; height: 1120px; object-fit: cover; }
+    #rn-plac { position: absolute; left: 192px; top: 110px; padding: 30px 40px 32px; background: #cfcac2; }
+    #rn-title { position: relative; font-family: "Oswald", sans-serif; font-weight: 700; font-size: 84px; line-height: 1; }
+    #rn-title .w { display: inline-block; }
+    #rn-sub { position: relative; margin-top: 14px; font-size: 36px; }
+    #rn-sub-note { position: relative; margin-top: 10px; font-size: 28px; color: #3b3430; }
+    #rn-night { position: absolute; left: 192px; top: 120px; font-family: "Oswald", sans-serif; font-weight: 700; font-size: 84px; line-height: 1; color: #f2efea; }
+    #rn-night-sub { position: absolute; left: 192px; top: 222px; font-size: 36px; color: #e4e0da; }
+    .rn-note { position: absolute; left: 192px; top: 920px; font-size: 28px; color: #3b3430; }
+    .rn-note.dark { color: #c9c3bb; }
+  </style>
+  <div id="root" data-composition-id="renders" data-width="1920" data-height="1080">
+    <!-- 360° turnaround, one render per 45° -->
+    <div id="rn-1" class="rn-shot clip" data-start="0" data-duration="0.5"><img src="assets/img/render-000-front.jpg" alt="Front, day" /></div>
+    <div id="rn-2" class="rn-shot clip" data-start="0.5" data-duration="0.5"><img src="assets/img/render-045.jpg" alt="Front-right 45°" /></div>
+    <div id="rn-3" class="rn-shot clip" data-start="1" data-duration="0.5"><img src="assets/img/render-090.jpg" alt="Right 90°" /></div>
+    <div id="rn-4" class="rn-shot clip" data-start="1.5" data-duration="0.5"><img src="assets/img/render-135.jpg" alt="Rear-right 135°" /></div>
+    <div id="rn-5" class="rn-shot clip" data-start="2" data-duration="0.5"><img src="assets/img/render-180.jpg" alt="Rear 180°" /></div>
+    <div id="rn-6" class="rn-shot clip" data-start="2.5" data-duration="0.5"><img src="assets/img/render-225.jpg" alt="Rear-left 225°" /></div>
+    <div id="rn-7" class="rn-shot clip" data-start="3" data-duration="0.5"><img src="assets/img/render-270.jpg" alt="Left 270°" /></div>
+    <div id="rn-8" class="rn-shot clip" data-start="3.5" data-duration="0.5"><img src="assets/img/render-315.jpg" alt="Front-left 315°" /></div>
+    <div id="rn-day" class="rn-shot clip" data-start="4" data-duration="4"><img id="rn-day-img" src="assets/img/render-000-front.jpg" alt="Front, day" /></div>
+    <div id="rn-n1" class="rn-shot clip" data-start="6.6" data-duration="2.8"><img id="rn-n1-img" src="assets/img/render-night-front.jpg" alt="Front, night, lights on" /></div>
+    <div id="rn-n2" class="rn-shot clip" data-start="9.4" data-duration="2.6"><img id="rn-n2-img" src="assets/img/render-night-front-left.jpg" alt="Front-left, night, lights on" /></div>
+
+    <div id="rn-day-text" class="clip" data-start="0" data-duration="6.8">
+      <div id="rn-plac">
+        <div id="rn-title"><span class="w">What</span> <span class="w">it</span> <span class="w">will</span> <span class="w">look</span> <span class="w">like</span></div>
+        <div id="rn-sub">Four falls over steel lips, all round 360°</div>
+        <div id="rn-sub-note">3D renders for reference only; the final result may vary</div>
+      </div>
+    </div>
+    <div id="rn-night-text" class="clip" data-start="6.8" data-duration="5.2">
+      <div id="rn-night">Lights on</div>
+      <div id="rn-night-sub">Warm spotlights on the rock, underwater lights under each fall</div>
+    </div>
+    <div id="rn-note-night" class="clip" data-start="6.8" data-duration="5.2"><div class="rn-note dark">3D renders for reference only; the final result may vary</div></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#rn-plac", { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 0.5, ease: "expo.out" }, 0);
+      tl.fromTo("#rn-title .w", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.18, stagger: 0.08, ease: "power4.out" }, 0.1);
+      tl.fromTo("#rn-sub", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.6);
+      tl.fromTo("#rn-day-img", { scale: 1.0 }, { scale: 1.06, duration: 4, ease: "none", transformOrigin: "50% 60%" }, 4);
+      // day to night: the night render fades up over the day one
+      tl.fromTo("#rn-n1", { opacity: 0 }, { opacity: 1, duration: 1.2, ease: "power2.inOut" }, 6.6);
+      tl.fromTo("#rn-n1-img", { scale: 1.06 }, { scale: 1.1, duration: 2.8, ease: "none", transformOrigin: "50% 60%" }, 6.6);
+      tl.fromTo("#rn-night", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.out" }, 7.6);
+      tl.fromTo("#rn-night-sub", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 8.0);
+      tl.fromTo("#rn-n2-img", { scale: 1.0, x: 0 }, { scale: 1.06, x: -30, duration: 2.6, ease: "none" }, 9.4);
+      tl.to("#rn-n2-img", { opacity: 0.25, duration: 0.4, ease: "power2.inOut" }, 11.6);
+      window.__timelines["renders"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,55 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: #cfcac2; font-family: "Inter", sans-serif; color: #1f1a17; }
+    #pl-title { position: absolute; left: 192px; top: 110px; font-family: "Oswald", sans-serif; font-weight: 700; font-size: 76px; line-height: 1; }
+    #pl-title .w { display: inline-block; }
+    #pl-sub { position: absolute; left: 192px; top: 205px; font-size: 36px; }
+    #pl-grid { position: absolute; left: 192px; top: 300px; width: 1536px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    .pl-step { height: 150px; background: #e4e0da; padding: 22px 28px; position: relative; }
+    .pl-step .n { font-size: 28px; font-weight: 700; color: #5d5650; }
+    .pl-step .v { font-family: "Oswald", sans-serif; font-weight: 600; font-size: 56px; line-height: 1.1; margin-top: 4px; }
+    .pl-fill { position: absolute; inset: 0; background: #1f1a17; }
+    .pl-step .on { position: absolute; inset: 0; padding: 22px 28px; color: #f2efea; }
+    .pl-step .on .n { color: #9fd3ec; }
+    #pl-rule { position: absolute; left: 192px; top: 860px; width: 1536px; font-family: "Oswald", sans-serif; font-weight: 600; font-size: 50px; line-height: 1.15; }
+    #pl-rule b { color: #14668e; font-weight: 600; }
+  </style>
+  <div id="root" data-composition-id="plan" data-width="1920" data-height="1080">
+    <div id="pl-title"><span class="w">The</span> <span class="w">whole</span> <span class="w">job</span> <span class="w">in</span> <span class="w">12</span> <span class="w">steps</span></div>
+    <div id="pl-sub">About 4 weeks of site work, then a 7-day trial run</div>
+    <div id="pl-grid">
+      <div class="pl-step"><div class="n">STEP 1</div><div class="v">Assess</div><div class="pl-fill"></div><div class="on"><div class="n">STEP 1</div><div class="v">Assess</div></div></div>
+      <div class="pl-step"><div class="n">STEP 2</div><div class="v">Empty</div><div class="pl-fill"></div><div class="on"><div class="n">STEP 2</div><div class="v">Empty</div></div></div>
+      <div class="pl-step"><div class="n">STEP 3</div><div class="v">Prove</div><div class="pl-fill"></div><div class="on"><div class="n">STEP 3</div><div class="v">Prove</div></div></div>
+      <div class="pl-step"><div class="n">STEP 4</div><div class="v">Repair</div><div class="pl-fill"></div><div class="on"><div class="n">STEP 4</div><div class="v">Repair</div></div></div>
+      <div class="pl-step"><div class="n">STEP 5</div><div class="v">Seal</div><div class="pl-fill"></div><div class="on"><div class="n">STEP 5</div><div class="v">Seal</div></div></div>
+      <div class="pl-step"><div class="n">STEP 6</div><div class="v">Shape</div><div class="pl-fill"></div><div class="on"><div class="n">STEP 6</div><div class="v">Shape</div></div></div>
+      <div class="pl-step"><div class="n">STEP 7</div><div class="v">Pipes</div><div class="pl-fill"></div><div class="on"><div class="n">STEP 7</div><div class="v">Pipes</div></div></div>
+      <div class="pl-step"><div class="n">STEP 8</div><div class="v">Power</div><div class="pl-fill"></div><div class="on"><div class="n">STEP 8</div><div class="v">Power</div></div></div>
+      <div class="pl-step"><div class="n">STEP 9</div><div class="v">Light</div><div class="pl-fill"></div><div class="on"><div class="n">STEP 9</div><div class="v">Light</div></div></div>
+      <div class="pl-step"><div class="n">STEP 10</div><div class="v">Finish</div><div class="pl-fill"></div><div class="on"><div class="n">STEP 10</div><div class="v">Finish</div></div></div>
+      <div class="pl-step"><div class="n">STEP 11</div><div class="v">Test</div><div class="pl-fill"></div><div class="on"><div class="n">STEP 11</div><div class="v">Test</div></div></div>
+      <div class="pl-step"><div class="n">STEP 12</div><div class="v">Hand over</div><div class="pl-fill"></div><div class="on"><div class="n">STEP 12</div><div class="v">Hand over</div></div></div>
+    </div>
+    <div id="pl-rule">Never jump ahead: <b>seal before pipes</b>, pipes before power, power before lights</div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#pl-title .w", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.18, stagger: 0.07, ease: "power4.out" }, 0.1);
+      tl.fromTo("#pl-sub", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.6);
+      tl.fromTo(".pl-step", { opacity: 0 }, { opacity: 1, duration: 0.3, stagger: 0.04 }, 0.4);
+      // each box lights up in order
+      const fills = gsap.utils.toArray("#pl-grid .pl-fill");
+      const ons = gsap.utils.toArray("#pl-grid .on");
+      fills.forEach((f, i) => {
+        const t = 1.2 + i * 0.32;
+        tl.fromTo(f, { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.3, ease: "expo.out" }, t);
+        tl.fromTo(ons[i], { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 0.3, ease: "expo.out" }, t);
+      });
+      tl.fromTo("#pl-rule", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.out" }, 4.0);
+      tl.to("#pl-title, #pl-sub, #pl-grid, #pl-rule", { opacity: 0, filter: "blur(8px)", duration: 0.25, ease: "power3.in" }, 7.2);
+      window.__timelines["plan"] = tl;
+    })();
+  </script>
+</template>

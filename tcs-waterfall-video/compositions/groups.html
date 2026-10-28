@@ -1,0 +1,381 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: #cfcac2; font-family: "Inter", sans-serif; color: #1f1a17; }
+    .g-ch { position: absolute; inset: 0; }
+    .g-left { position: absolute; left: 192px; top: 100px; width: 610px; }
+    .g-letter { font-family: "Oswald", sans-serif; font-weight: 700; font-size: 190px; line-height: 0.95; color: #14668e; }
+    .g-codes { font-size: 28px; font-weight: 700; color: #5d5650; letter-spacing: 0.04em; margin-top: 6px; }
+    .g-name { font-family: "Oswald", sans-serif; font-weight: 600; font-size: 58px; line-height: 1.08; margin-top: 10px; }
+    .g-amt { font-family: "Oswald", sans-serif; font-weight: 600; font-size: 52px; margin-top: 14px; }
+    .g-line { font-size: 34px; line-height: 1.3; margin-top: 18px; }
+    .g-vis { position: absolute; left: 860px; top: 120px; width: 868px; height: 730px; }
+    .g-photo { position: absolute; left: 0; top: 0; width: 868px; height: 640px; overflow: hidden; }
+    .g-photo img { position: absolute; left: 0; top: 0; width: 868px; height: 640px; object-fit: cover; }
+    .g-tag { position: absolute; background: #1f1a17; color: #f2efea; font-family: "Oswald", sans-serif; font-weight: 600; font-size: 44px; padding: 10px 22px; }
+    .g-tag small { display: block; font-family: "Inter", sans-serif; font-weight: 400; font-size: 28px; color: #c9c3bb; }
+    .g-foot { position: absolute; left: 0; top: 664px; width: 868px; font-size: 30px; line-height: 1.3; color: #3b3430; }
+    .g-svg { position: absolute; left: 0; top: 0; width: 868px; height: 640px; }
+    .g-svg text { font-family: "Inter", sans-serif; }
+    .g-lab { font-size: 30px; font-weight: 700; fill: #1f1a17; }
+    .g-labs { font-size: 28px; fill: #3b3430; }
+    .g-lead { stroke: #1f1a17; stroke-width: 2; fill: none; }
+    /* D: the number that lands */
+    .d-row { position: absolute; left: 0; width: 868px; }
+    .d-cap { font-size: 30px; color: #5d5650; font-weight: 700; letter-spacing: 0.03em; }
+    .d-num { font-family: "Oswald", sans-serif; font-weight: 700; font-size: 150px; line-height: 1; }
+    .d-sm { font-size: 30px; color: #3b3430; }
+    .d-fact { font-size: 34px; line-height: 1.3; padding: 14px 0; border-top: 3px solid #1f1a17; }
+    .d-fact b { font-weight: 700; }
+    /* E: the waterline */
+    .e-big { font-family: "Oswald", sans-serif; font-weight: 700; font-size: 180px; line-height: 1; }
+    .e-txt { font-size: 34px; line-height: 1.3; }
+    .e-txt b { font-weight: 700; }
+    /* H: tests and the trial */
+    .h-test { font-size: 34px; line-height: 1.25; padding: 12px 0 12px 46px; position: relative; }
+    .h-tick { position: absolute; left: 0; top: 18px; width: 26px; height: 14px; border-left: 5px solid #1e86b8; border-bottom: 5px solid #1e86b8; transform: rotate(-45deg); }
+    .h-days { position: absolute; left: 0; top: 380px; width: 868px; display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; }
+    .h-day { height: 110px; background: #e4e0da; position: relative; overflow: hidden; }
+    .h-day .f { position: absolute; inset: 0; background: #1e86b8; }
+    .h-day span { position: absolute; left: 14px; top: 12px; font-size: 28px; font-weight: 700; }
+    /* ledger */
+    #g-ledger { position: absolute; left: 192px; top: 880px; width: 1536px; height: 92px; }
+    #g-led-cap { position: absolute; left: 0; top: 0; font-size: 28px; font-weight: 700; color: #5d5650; letter-spacing: 0.04em; }
+    #g-led-val { position: absolute; right: 0; top: -8px; font-family: "Oswald", sans-serif; font-weight: 600; font-size: 42px; }
+    #g-led-val span { color: #5d5650; font-weight: 400; }
+    #g-bar { position: absolute; left: 0; top: 56px; width: 1536px; height: 18px; background: #e4e0da; display: flex; }
+    .g-seg { height: 18px; position: relative; border-right: 2px solid #cfcac2; }
+    .g-seg i { position: absolute; inset: 0; background: #1f1a17; }
+  </style>
+  <div id="root" data-composition-id="groups" data-width="1920" data-height="1080">
+
+    <!-- A · Preliminaries -->
+    <div id="gA" class="g-ch clip" data-start="0" data-duration="6">
+      <div class="g-left">
+        <div class="g-letter">A</div>
+        <div class="g-codes">ITEMS A1–A2</div>
+        <div class="g-name">Site set-up and survey</div>
+        <div class="g-amt">₹18,350</div>
+        <div class="g-line">Measure flow and head first, then choose the pumps</div>
+      </div>
+      <div class="g-vis">
+        <div class="g-photo"><img id="gA-img" src="assets/img/site-front.jpg" alt="Front of the waterfall" /></div>
+        <div class="g-tag" id="gA-t1" style="left: 28px; top: 430px">Head 12–15 m<small>5–6 m lift + pipe loss</small></div>
+        <div class="g-tag" id="gA-t2" style="left: 420px; top: 430px">Flow ≈ 48 m³/hr<small>4 falls × lip length</small></div>
+        <div class="g-foot" id="gA-foot">Joint site walk with TCS · barricades, PPE and gate passes</div>
+      </div>
+    </div>
+
+    <!-- B · Lower pond -->
+    <div id="gB" class="g-ch clip" data-start="6" data-duration="6">
+      <div class="g-left">
+        <div class="g-letter">B</div>
+        <div class="g-codes">ITEMS B1–B7</div>
+        <div class="g-name">Lower pond: repair and waterproof</div>
+        <div class="g-amt">₹86,660</div>
+        <div class="g-line">The wet patch shows it leaks, so seal it layer by layer</div>
+      </div>
+      <div class="g-vis">
+        <svg class="g-svg" viewBox="0 0 868 640">
+          <rect id="gB-water" x="0" y="150" width="440" height="190" fill="#1e86b8" fill-opacity="0.3" />
+          <rect id="gB-slab" x="0" y="450" width="440" height="170" fill="#9b958d" stroke="#1f1a17" stroke-width="3" />
+          <path id="gB-groove" d="M 190 450 L 220 500 L 250 450 Z" fill="#5d5650" stroke="#1f1a17" stroke-width="2" />
+          <rect id="gB-c1" x="0" y="424" width="440" height="26" fill="#b9b2a8" stroke="#1f1a17" stroke-width="2" />
+          <line id="gB-mesh" x1="0" y1="414" x2="440" y2="414" stroke="#1f1a17" stroke-width="4" stroke-dasharray="10 8" />
+          <rect id="gB-c2" x="0" y="378" width="440" height="26" fill="#d8d2c9" stroke="#1f1a17" stroke-width="2" />
+          <rect id="gB-paint" x="0" y="340" width="440" height="38" fill="#3d3b3a" />
+          <g id="gB-labels">
+            <g class="gB-l"><line class="g-lead" x1="440" y1="359" x2="480" y2="150" /><text class="g-lab" x="490" y="160">Pool paint, dark grey</text><text class="g-labs" x="490" y="196">2 coats over the seal</text></g>
+            <g class="gB-l"><line class="g-lead" x1="440" y1="391" x2="480" y2="262" /><text class="g-lab" x="490" y="272">Waterproof coat 2</text><text class="g-labs" x="490" y="306">brushed at right angles</text></g>
+            <g class="gB-l"><line class="g-lead" x1="440" y1="414" x2="480" y2="372" /><text class="g-lab" x="490" y="382">Fibre mesh tape</text><text class="g-labs" x="490" y="416">at corners and joints</text></g>
+            <g class="gB-l"><line class="g-lead" x1="440" y1="437" x2="480" y2="482" /><text class="g-lab" x="490" y="492">Waterproof coat 1</text></g>
+            <g class="gB-l"><line class="g-lead" x1="236" y1="486" x2="480" y2="572" /><text class="g-lab" x="490" y="582">Cracks: V-groove +</text><text class="g-labs" x="490" y="616">polymer repair mortar</text></g>
+          </g>
+          <text id="gB-wl" class="g-lab" x="20" y="200" fill="#1f1a17">Water</text>
+          <text id="gB-sl" class="g-labs" x="20" y="600" fill="#1f1a17">Existing slab</text>
+        </svg>
+        <div class="g-foot" id="gB-foot">Drained, desilted, leak-tested 24 h · 60 sqm sealed</div>
+      </div>
+    </div>
+
+    <!-- G · Rock top -->
+    <div id="gG" class="g-ch clip" data-start="12" data-duration="6">
+      <div class="g-left">
+        <div class="g-letter">G</div>
+        <div class="g-codes">ITEMS G1–G12</div>
+        <div class="g-name">Rock top: ponds and spill lips</div>
+        <div class="g-amt">₹1,37,590</div>
+        <div class="g-line">A sharp steel lip makes each fall a clean, glass-like sheet</div>
+      </div>
+      <div class="g-vis">
+        <svg class="g-svg" viewBox="0 0 868 640">
+          <rect id="gG-water" x="0" y="196" width="470" height="64" fill="#1e86b8" fill-opacity="0.45" />
+          <path id="gG-rock" d="M 0 260 L 470 260 L 480 330 L 460 470 L 480 640 L 0 640 Z" fill="#8a7464" stroke="#1f1a17" stroke-width="3" />
+          <path id="gG-sheet" d="M 528 262 C 556 280 566 420 580 640" fill="none" stroke="#1e86b8" stroke-width="18" />
+          <path id="gG-sheet-dash" d="M 528 262 C 556 280 566 420 580 640" fill="none" stroke="#9fd3ec" stroke-width="5" stroke-dasharray="14 16" />
+          <polyline id="gG-lip" points="380,260 524,260 524,292" fill="none" stroke="#c9ccce" stroke-width="9" stroke-linejoin="miter" />
+          <g id="gG-anchors"><circle cx="410" cy="270" r="6" fill="#1f1a17" /><circle cx="455" cy="270" r="6" fill="#1f1a17" /></g>
+          <g class="gG-l"><line class="g-lead" x1="524" y1="250" x2="600" y2="150" /><text class="g-lab" x="610" y="140">SS 304 spill lip</text><text class="g-labs" x="610" y="176">2 mm, drip edge</text></g>
+          <g class="gG-l"><line class="g-lead" x1="455" y1="280" x2="600" y2="330" /><text class="g-lab" x="610" y="330">Anchored and</text><text class="g-labs" x="610" y="366">sealed into the rock</text></g>
+          <g class="gG-l"><text class="g-lab" x="610" y="480">4 falls · 5 m of lip</text><text class="g-labs" x="610" y="516">rock-tinted finish</text></g>
+          <text id="gG-wl" class="g-lab" x="20" y="240">Side basin</text>
+        </svg>
+        <div class="g-foot" id="gG-foot">Top pond + basins: 35 sqm re-plastered and waterproofed</div>
+      </div>
+    </div>
+
+    <!-- C · Pumps, valves, piping -->
+    <div id="gC" class="g-ch clip" data-start="18" data-duration="6">
+      <div class="g-left">
+        <div class="g-letter">C</div>
+        <div class="g-codes">ITEMS C1–C9</div>
+        <div class="g-name">Pumps, valves and piping</div>
+        <div class="g-amt">₹2,37,000</div>
+        <div class="g-line">Two new 7.5 HP pumps, each with its own full valve set</div>
+      </div>
+      <div class="g-vis">
+        <svg class="g-svg" viewBox="0 0 868 640">
+          <rect id="gC-pond" x="0" y="540" width="400" height="100" fill="#1e86b8" fill-opacity="0.3" />
+          <line x1="0" y1="540" x2="400" y2="540" stroke="#1e86b8" stroke-width="4" id="gC-surf" />
+          <path id="gC-pipe" d="M 200 560 L 200 40" stroke="#5d5650" stroke-width="18" fill="none" />
+          <path id="gC-flow" d="M 200 560 L 200 40" stroke="#9fd3ec" stroke-width="6" stroke-dasharray="14 16" fill="none" />
+          <g class="gC-c"><rect x="170" y="560" width="60" height="70" rx="6" fill="#3a2e28" /><rect x="160" y="618" width="80" height="18" fill="none" stroke="#1f1a17" stroke-width="3" stroke-dasharray="5 4" />
+            <line class="g-lead" x1="240" y1="600" x2="300" y2="600" /><text class="g-lab" x="310" y="596">Pump 7.5 HP + SS strainer</text><text class="g-labs" x="310" y="630">≈ 24 m³/hr each, 2 nos.</text></g>
+          <g class="gC-c"><path d="M 178 470 L 222 470 L 200 440 Z" fill="#1f1a17" /><line x1="174" y1="440" x2="226" y2="440" stroke="#1f1a17" stroke-width="5" />
+            <line class="g-lead" x1="236" y1="456" x2="300" y2="456" /><text class="g-lab" x="310" y="466">Non-return valve</text></g>
+          <g class="gC-c"><path d="M 172 330 L 228 362 L 228 330 L 172 362 Z" fill="#1f1a17" /><circle cx="200" cy="346" r="7" fill="#e4e0da" />
+            <line class="g-lead" x1="236" y1="346" x2="300" y2="346" /><text class="g-lab" x="310" y="356">Butterfly valve, flanged</text></g>
+          <g class="gC-c"><line x1="200" y1="240" x2="250" y2="240" stroke="#1f1a17" stroke-width="5" /><circle cx="272" cy="240" r="22" fill="#e4e0da" stroke="#1f1a17" stroke-width="4" /><line x1="272" y1="240" x2="282" y2="228" stroke="#1f1a17" stroke-width="3" />
+            <text class="g-lab" x="310" y="236">Pressure gauge</text><text class="g-labs" x="310" y="270">0–10 kg/cm²</text></g>
+          <g class="gC-c"><path d="M 184 60 L 200 30 L 216 60" fill="none" stroke="#1f1a17" stroke-width="4" />
+            <line class="g-lead" x1="236" y1="110" x2="300" y2="110" /><text class="g-lab" x="310" y="104">6-inch GI rising main</text><text class="g-labs" x="310" y="138">flushed and pressure-tested</text></g>
+        </svg>
+        <div class="g-foot" id="gC-foot">Old pumps to TCS stores · a float valve tops up the pond</div>
+      </div>
+    </div>
+
+    <!-- D · Electrical and controls -->
+    <div id="gD" class="g-ch clip" data-start="24" data-duration="6">
+      <div class="g-left">
+        <div class="g-letter">D</div>
+        <div class="g-codes">ITEMS D1–D7</div>
+        <div class="g-name">Electrical and controls</div>
+        <div class="g-amt">₹1,09,850</div>
+        <div class="g-line">Above 5 HP, direct starting is not permitted</div>
+      </div>
+      <div class="g-vis">
+        <div class="d-row" style="top: 0">
+          <div class="d-cap">SWITCH-ON CURRENT, PER PUMP</div>
+        </div>
+        <div class="d-row" id="gD-old" style="top: 50px; width: 400px">
+          <div class="d-num">≈ 65 A</div><div class="d-sm">direct start</div>
+        </div>
+        <div id="gD-strike" style="position: absolute; left: 0; top: 122px; width: 330px; height: 10px; background: #1f1a17"></div>
+        <div class="d-row" id="gD-new" style="top: 50px; left: 450px; width: 418px">
+          <div class="d-num" style="color: #14668e">≈ 21 A</div><div class="d-sm">star-delta start</div>
+        </div>
+        <div class="d-row" style="top: 330px">
+          <div class="d-fact" id="gD-f1"><b>RCCB</b> 30 mA on lights, 100 mA on pumps</div>
+          <div class="d-fact" id="gD-f2"><b>Earth pit</b> resistance ≤ 2 Ω</div>
+          <div class="d-fact" id="gD-f3"><b>Dry-run cut-off</b> stops the pumps if water runs low</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- E · Lighting -->
+    <div id="gE" class="g-ch clip" data-start="30" data-duration="6">
+      <div class="g-left">
+        <div class="g-letter">E</div>
+        <div class="g-codes">ITEMS E1–E6</div>
+        <div class="g-name">Lighting</div>
+        <div class="g-amt">₹1,61,600</div>
+        <div class="g-line">Only 24 V in the water, so even a fault is safe</div>
+      </div>
+      <div class="g-vis">
+        <div id="gE-under" style="position: absolute; left: 0; top: 330px; width: 868px; height: 310px; background: rgba(30, 134, 184, 0.28)"></div>
+        <div id="gE-line" style="position: absolute; left: 0; top: 326px; width: 868px; height: 6px; background: #1e86b8"></div>
+        <div id="gE-a" style="position: absolute; left: 0; top: 40px; display: flex; gap: 36px; align-items: center">
+          <div class="e-big">12</div>
+          <div class="e-txt"><b>rock spotlights</b><br />18 W · IP66 · warm white</div>
+        </div>
+        <div id="gE-b" style="position: absolute; left: 0; top: 380px; display: flex; gap: 36px; align-items: center">
+          <div class="e-big">8</div>
+          <div class="e-txt"><b>underwater lights</b><br />12 W · IP68 · 24 V DC</div>
+        </div>
+        <div class="g-foot" id="gE-foot">Sealed junction boxes · separate spot and underwater circuits</div>
+      </div>
+    </div>
+
+    <!-- F · Rockwork, landscape, paving -->
+    <div id="gF" class="g-ch clip" data-start="36" data-duration="6">
+      <div class="g-left">
+        <div class="g-letter">F</div>
+        <div class="g-codes">ITEMS F1–F4</div>
+        <div class="g-name">Rockwork, landscape and paving</div>
+        <div class="g-amt">₹70,100</div>
+        <div class="g-line">Every rock face pressure-washed, with algae and stains removed</div>
+      </div>
+      <div class="g-vis">
+        <div class="g-photo"><img id="gF-img" src="assets/img/site-feed-channel.jpg" alt="Rock faces behind the boulder" /></div>
+        <div class="g-tag" id="gF-t1" style="left: 28px; top: 470px">130 sqm of rock<small>front, sides and rear</small></div>
+        <div class="g-foot" id="gF-foot">New planting · paving washed · algaecide at first fill</div>
+      </div>
+    </div>
+
+    <!-- H · Testing and handover -->
+    <div id="gH" class="g-ch clip" data-start="42" data-duration="6">
+      <div class="g-left">
+        <div class="g-letter">H</div>
+        <div class="g-codes">ITEMS H1–H2</div>
+        <div class="g-name">Testing and handover</div>
+        <div class="g-amt">₹13,900</div>
+        <div class="g-line">Prove it with signed tests, then hand it over</div>
+      </div>
+      <div class="g-vis">
+        <div class="h-test" id="gH-1"><div class="h-tick"></div>Leak test, 24 hours, before and after repair</div>
+        <div class="h-test" id="gH-2"><div class="h-tick"></div>Mains pressure test · insulation and earth readings</div>
+        <div class="h-test" id="gH-3"><div class="h-tick"></div>RCCB trip tests · flow balanced on all 4 falls</div>
+        <div class="h-days" id="gH-days">
+          <div class="h-day"><div class="f"></div><span>Day 1</span></div>
+          <div class="h-day"><div class="f"></div><span>Day 2</span></div>
+          <div class="h-day"><div class="f"></div><span>Day 3</span></div>
+          <div class="h-day"><div class="f"></div><span>Day 4</span></div>
+          <div class="h-day"><div class="f"></div><span>Day 5</span></div>
+          <div class="h-day"><div class="f"></div><span>Day 6</span></div>
+          <div class="h-day"><div class="f"></div><span>Day 7</span></div>
+        </div>
+        <div class="g-foot" id="gH-foot" style="top: 520px">7-day trial logged daily · O&amp;M manual and operator training</div>
+      </div>
+    </div>
+
+    <!-- running BOQ total: the carrier across all eight groups -->
+    <div id="g-ledger">
+      <div id="g-led-cap">BOQ SO FAR</div>
+      <div id="g-led-val"><b id="g-led-num">₹0</b> <span>of ₹8,35,050</span></div>
+      <div id="g-bar">
+        <div class="g-seg" style="width: 2.1975%"><i></i></div>
+        <div class="g-seg" style="width: 10.3778%"><i></i></div>
+        <div class="g-seg" style="width: 16.4769%"><i></i></div>
+        <div class="g-seg" style="width: 28.3815%"><i></i></div>
+        <div class="g-seg" style="width: 13.1549%"><i></i></div>
+        <div class="g-seg" style="width: 19.3521%"><i></i></div>
+        <div class="g-seg" style="width: 8.3947%"><i></i></div>
+        <div class="g-seg" style="width: 1.6646%; border-right: 0"><i></i></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      const ids = ["A", "B", "G", "C", "D", "E", "F", "H"];
+      const amounts = [18350, 86660, 137590, 237000, 109850, 161600, 70100, 13900];
+      const CH = 6;
+
+      // shared chapter entrance / exit
+      ids.forEach((id, i) => {
+        const t0 = i * CH;
+        const s = "#g" + id;
+        tl.fromTo(s + " .g-letter", { clipPath: "inset(0 0 100% 0)" }, { clipPath: "inset(0 0 0% 0)", duration: 0.45, ease: "expo.out" }, t0 + 0.05);
+        tl.fromTo(s + " .g-codes", { opacity: 0 }, { opacity: 1, duration: 0.2 }, t0 + 0.2);
+        tl.fromTo(s + " .g-name", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.out" }, t0 + 0.25);
+        tl.fromTo(s + " .g-amt", { opacity: 0 }, { opacity: 1, duration: 0.2 }, t0 + 0.5);
+        tl.fromTo(s + " .g-line", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.out" }, t0 + 0.7);
+        if (i < ids.length - 1) {
+          tl.to(s + " .g-left, " + s + " .g-vis", { opacity: 0, filter: "blur(8px)", duration: 0.22, ease: "power3.in" }, t0 + CH - 0.25);
+        }
+      });
+
+      // A: survey photo + the two numbers
+      tl.fromTo("#gA .g-photo", { clipPath: "inset(0 0 0 100%)" }, { clipPath: "inset(0 0 0 0%)", duration: 0.6, ease: "expo.out" }, 0.2);
+      tl.fromTo("#gA-img", { scale: 1.02 }, { scale: 1.1, duration: 6, ease: "none" }, 0);
+      tl.fromTo("#gA-t1", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.4, ease: "expo.out" }, 1.0);
+      tl.fromTo("#gA-t2", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.4, ease: "expo.out" }, 1.3);
+      tl.fromTo("#gA-foot", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 1.8);
+
+      // B: the layers stack up, bottom to top
+      const bT = 6;
+      tl.fromTo("#gB-slab", { opacity: 0 }, { opacity: 1, duration: 0.3 }, bT + 0.3);
+      tl.fromTo("#gB-sl", { opacity: 0 }, { opacity: 1, duration: 0.3 }, bT + 0.3);
+      tl.fromTo("#gB-groove", { opacity: 0 }, { opacity: 1, duration: 0.2 }, bT + 0.7);
+      ["#gB-c1", "#gB-mesh", "#gB-c2", "#gB-paint"].forEach((sel, k) => {
+        tl.fromTo(sel, { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.4, ease: "expo.out" }, bT + 1.0 + k * 0.45);
+      });
+      const bl = gsap.utils.toArray("#gB .gB-l").reverse();
+      bl.forEach((el, k) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: 0.2 }, bT + 0.8 + k * 0.45));
+      tl.fromTo("#gB-water", { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: 0.6, ease: "expo.out" }, bT + 3.0);
+      tl.fromTo("#gB-wl", { opacity: 0 }, { opacity: 1, duration: 0.2 }, bT + 3.2);
+      tl.fromTo("#gB-foot", { opacity: 0 }, { opacity: 1, duration: 0.3 }, bT + 1.8);
+
+      // G: lip section, then the sheet falls
+      const gT = 12;
+      tl.fromTo("#gG-rock", { opacity: 0 }, { opacity: 1, duration: 0.3 }, gT + 0.3);
+      tl.fromTo("#gG-water, #gG-wl", { opacity: 0 }, { opacity: 1, duration: 0.3 }, gT + 0.5);
+      tl.fromTo("#gG-lip", { strokeDasharray: 200, strokeDashoffset: 200 }, { strokeDashoffset: 0, duration: 0.5, ease: "power2.inOut" }, gT + 0.9);
+      tl.fromTo("#gG-anchors", { opacity: 0 }, { opacity: 1, duration: 0.2 }, gT + 1.3);
+      tl.fromTo("#gG-sheet", { strokeDasharray: 420, strokeDashoffset: 420 }, { strokeDashoffset: 0, duration: 0.6, ease: "power3.in" }, gT + 1.6);
+      tl.fromTo("#gG-sheet-dash", { opacity: 0, strokeDashoffset: 0 }, { opacity: 1, strokeDashoffset: -30 * 14, duration: 3.8, ease: "none" }, gT + 2.2);
+      gsap.utils.toArray("#gG .gG-l").forEach((el, k) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: 0.2 }, gT + 1.1 + k * 0.5));
+      tl.fromTo("#gG-foot", { opacity: 0 }, { opacity: 1, duration: 0.3 }, gT + 1.6);
+
+      // C: the pipe line builds upward, then water climbs it
+      const cT = 18;
+      tl.fromTo("#gC-pond, #gC-surf", { opacity: 0 }, { opacity: 1, duration: 0.3 }, cT + 0.3);
+      tl.fromTo("#gC-pipe", { strokeDasharray: 520, strokeDashoffset: 520 }, { strokeDashoffset: 0, duration: 0.8, ease: "power2.inOut" }, cT + 0.5);
+      gsap.utils.toArray("#gC .gC-c").forEach((el, k) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: 0.2 }, cT + 0.7 + k * 0.4));
+      tl.fromTo("#gC-flow", { opacity: 0, strokeDashoffset: 0 }, { opacity: 1, strokeDashoffset: -30 * 12, duration: 3.6, ease: "none" }, cT + 2.4);
+      tl.fromTo("#gC-foot", { opacity: 0 }, { opacity: 1, duration: 0.3 }, cT + 1.6);
+
+      // D: 65 A struck through, 21 A lands
+      const dT = 24;
+      tl.fromTo("#gD .d-cap", { opacity: 0 }, { opacity: 1, duration: 0.2 }, dT + 0.3);
+      tl.fromTo("#gD-old", { opacity: 0 }, { opacity: 1, duration: 0.3 }, dT + 0.5);
+      tl.fromTo("#gD-strike", { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.3, ease: "expo.out" }, dT + 1.3);
+      tl.fromTo("#gD-new", { opacity: 0, x: -30, filter: "blur(8px)" }, { opacity: 1, x: 0, filter: "blur(0px)", duration: 0.45, ease: "expo.out" }, dT + 1.5);
+      ["#gD-f1", "#gD-f2", "#gD-f3"].forEach((s, k) => tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.25 }, dT + 2.2 + k * 0.35));
+
+      // E: the waterline splits above from below
+      const eT = 30;
+      tl.fromTo("#gE-line", { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.6, ease: "expo.out" }, eT + 0.3);
+      tl.fromTo("#gE-under", { opacity: 0 }, { opacity: 1, duration: 0.4 }, eT + 0.6);
+      tl.fromTo("#gE-a", { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.45, ease: "expo.out" }, eT + 0.9);
+      tl.fromTo("#gE-b", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.45, ease: "expo.out" }, eT + 1.4);
+      tl.fromTo("#gE-foot", { opacity: 0 }, { opacity: 1, duration: 0.3 }, eT + 1.8);
+
+      // F: rock photo + the area
+      const fT = 36;
+      tl.fromTo("#gF .g-photo", { clipPath: "inset(0 0 0 100%)" }, { clipPath: "inset(0 0 0 0%)", duration: 0.6, ease: "expo.out" }, fT + 0.2);
+      tl.fromTo("#gF-img", { scale: 1.02 }, { scale: 1.1, duration: 6, ease: "none" }, fT);
+      tl.fromTo("#gF-t1", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.4, ease: "expo.out" }, fT + 1.0);
+      tl.fromTo("#gF-foot", { opacity: 0 }, { opacity: 1, duration: 0.3 }, fT + 1.6);
+
+      // H: tests ticked, then the 7 days fill
+      const hT = 42;
+      ["#gH-1", "#gH-2", "#gH-3"].forEach((s, k) => tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.2 }, hT + 0.4 + k * 0.35));
+      tl.fromTo("#gH-days", { opacity: 0 }, { opacity: 1, duration: 0.3 }, hT + 1.2);
+      gsap.utils.toArray("#gH .h-day .f").forEach((el, k) => tl.fromTo(el, { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: 0.25, ease: "expo.out" }, hT + 1.4 + k * 0.22));
+      tl.fromTo("#gH-foot", { opacity: 0 }, { opacity: 1, duration: 0.3 }, hT + 1.8);
+
+      // ledger: bar segments fill as each group is named
+      tl.fromTo("#g-ledger", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.1);
+      gsap.utils.toArray("#g-bar .g-seg i").forEach((el, i) => {
+        tl.fromTo(el, { scaleX: 0, transformOrigin: "0% 50%", backgroundColor: "#1e86b8" }, { scaleX: 1, duration: 0.8, ease: "power2.inOut" }, i * CH + 0.5);
+        tl.to(el, { backgroundColor: "#1f1a17", duration: 0.3 }, i * CH + CH - 0.2);
+      });
+      // running total, computed from timeline time so any frame renders on its own
+      const num = document.getElementById("g-led-num");
+      const clock = { t: 0 };
+      const fmt = (n) => "₹" + Math.round(n).toLocaleString("en-IN");
+      tl.fromTo(clock, { t: 0 }, {
+        t: 48, duration: 48, ease: "none",
+        onUpdate: () => {
+          let total = 0;
+          for (let i = 0; i < amounts.length; i++) {
+            const p = Math.min(1, Math.max(0, (clock.t - (i * CH + 0.5)) / 0.8));
+            total += amounts[i] * p;
+          }
+          num.textContent = fmt(total);
+        },
+      }, 0);
+      window.__timelines["groups"] = tl;
+    })();
+  </script>
+</template>

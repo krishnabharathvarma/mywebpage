@@ -1,0 +1,98 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: #cfcac2; font-family: "Inter", sans-serif; color: #1f1a17; }
+    #lp-title { position: absolute; left: 192px; top: 110px; font-family: "Oswald", sans-serif; font-weight: 700; font-size: 76px; line-height: 1; }
+    #lp-title .w { display: inline-block; }
+    #lp-sub { position: absolute; left: 192px; top: 205px; font-size: 36px; }
+    #lp-sub b { color: #14668e; }
+    #lp-svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    .lp-label { font-family: "Inter", sans-serif; font-size: 30px; font-weight: 700; fill: #1f1a17; }
+    .lp-label-sub { font-family: "Inter", sans-serif; font-size: 28px; font-weight: 400; fill: #3b3430; }
+    .lp-lead { stroke: #1f1a17; stroke-width: 2; fill: none; }
+    #lp-facts { position: absolute; left: 192px; top: 912px; width: 1150px; font-size: 32px; line-height: 1.25; }
+    #lp-facts b { font-weight: 700; }
+  </style>
+  <div id="root" data-composition-id="loop" data-width="1920" data-height="1080">
+    <div id="lp-title"><span class="w">How</span> <span class="w">the</span> <span class="w">waterfall</span> <span class="w">works</span></div>
+    <div id="lp-sub">A closed loop: <b>the same water goes round and round</b></div>
+
+    <svg id="lp-svg" viewBox="0 0 1920 1080" data-layout-allow-overflow data-hold>
+      <!-- ground -->
+      <line id="lp-ground" x1="150" y1="880" x2="1770" y2="880" stroke="#1f1a17" stroke-width="4" />
+      <!-- rock mass with the top pond and side basin recesses -->
+      <path id="lp-rock" d="M 240 880 L 280 720 L 360 620 L 430 520 L 500 420 L 540 360 L 540 410 L 820 410 L 820 360 L 880 380 L 900 520 L 900 560 L 1020 560 L 1020 520 L 1010 600 L 990 790 L 1000 880 Z"
+        fill="#8a7464" stroke="#1f1a17" stroke-width="4" stroke-linejoin="round" />
+      <!-- lower pond and kerb -->
+      <rect id="lp-pond" x="1000" y="800" width="640" height="80" fill="#1e86b8" fill-opacity="0.35" />
+      <line id="lp-pond-surface" x1="1000" y1="800" x2="1640" y2="800" stroke="#1e86b8" stroke-width="4" />
+      <path id="lp-kerb" d="M 1640 880 L 1640 780 Q 1670 762 1700 780 L 1700 880 Z" fill="#3a2e28" />
+      <!-- top storage pond water -->
+      <rect id="lp-top" x="544" y="372" width="272" height="36" fill="#1e86b8" />
+      <!-- side basin water -->
+      <rect id="lp-basin" x="904" y="528" width="114" height="30" fill="#1e86b8" />
+      <!-- pump + strainer -->
+      <g id="lp-pump">
+        <rect x="1478" y="818" width="44" height="54" rx="4" fill="#3a2e28" />
+        <rect x="1470" y="858" width="60" height="16" rx="3" fill="none" stroke="#1f1a17" stroke-width="3" stroke-dasharray="4 4" />
+      </g>
+      <!-- rising main (pipe) -->
+      <path id="lp-main" d="M 1500 820 L 1500 290 L 680 290 L 680 375" fill="none" stroke="#5d5650" stroke-width="14" stroke-linejoin="round" />
+      <!-- branch feed + balancing valve -->
+      <path id="lp-feed" d="M 816 392 L 860 392 L 860 544 L 904 544" fill="none" stroke="#5d5650" stroke-width="10" stroke-linejoin="round" />
+      <g id="lp-valve"><path d="M 846 456 L 874 476 L 874 456 L 846 476 Z" fill="#1f1a17" /></g>
+      <!-- SS spill lip -->
+      <line id="lp-lip" x1="1004" y1="522" x2="1034" y2="522" stroke="#e4e0da" stroke-width="6" />
+      <!-- the fall -->
+      <path id="lp-fall" d="M 1030 524 C 1048 540 1052 640 1062 798" fill="none" stroke="#1e86b8" stroke-width="12" stroke-linecap="round" />
+
+      <!-- moving water (dashes) -->
+      <g id="lp-flow" fill="none" stroke="#9fd3ec" stroke-width="5" stroke-dasharray="16 18" stroke-linecap="round">
+        <path class="lp-dash" d="M 1500 820 L 1500 290 L 680 290 L 680 375" />
+        <path class="lp-dash" d="M 816 392 L 860 392 L 860 544 L 904 544" />
+        <path class="lp-dash" d="M 1030 524 C 1048 540 1052 640 1062 798" />
+        <path class="lp-dash" d="M 1070 812 L 1470 812" />
+      </g>
+
+      <!-- labels -->
+      <g id="lp-l1"><line class="lp-lead" x1="1500" y1="876" x2="1500" y2="904" /><text class="lp-label" x="1400" y="940">Pumps + strainers</text></g>
+      <g id="lp-l2"><text class="lp-label" x="1530" y="540">Rising mains</text><text class="lp-label-sub" x="1530" y="578">2 × 6-inch GI</text></g>
+      <g id="lp-l3"><line class="lp-lead" x1="560" y1="370" x2="500" y2="335" /><text class="lp-label" x="200" y="330">Top storage pond</text></g>
+      <g id="lp-l4"><text class="lp-label" x="1090" y="470">Side basin</text><text class="lp-label-sub" x="1090" y="506">+ balancing valve per fall</text></g>
+      <g id="lp-l5"><text class="lp-label" x="1100" y="640">Steel spill lip → fall</text><text class="lp-label-sub" x="1100" y="676">4 falls back into the pond</text></g>
+      <g id="lp-l6"><text class="lp-label" x="1110" y="860" fill="#1f1a17">Lower pond ≈ 22 m</text></g>
+    </svg>
+
+    <div id="lp-facts"><b>≈ 48 m³/hr</b> · 2 pumps · 12–15 m head<br />A float valve tops up what evaporates</div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#lp-title .w", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.18, stagger: 0.08, ease: "power4.out" }, 0.1);
+      tl.fromTo("#lp-sub", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.6);
+      // the diagram grows one part at a time
+      tl.fromTo("#lp-ground", { attr: { x2: 150 } }, { attr: { x2: 1770 }, duration: 0.7, ease: "power2.inOut" }, 0.6);
+      tl.fromTo("#lp-rock", { clipPath: "inset(100% 0 0 0)" }, { clipPath: "inset(0% 0 0 0)", duration: 0.8, ease: "expo.out" }, 0.9);
+      tl.fromTo("#lp-pond, #lp-pond-surface, #lp-kerb", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 1.3);
+      tl.fromTo("#lp-pump", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: "expo.out" }, 1.8);
+      tl.fromTo("#lp-l1", { opacity: 0 }, { opacity: 1, duration: 0.25 }, 2.0);
+      tl.fromTo("#lp-main", { strokeDasharray: 1500, strokeDashoffset: 1500 }, { strokeDashoffset: 0, duration: 1.1, ease: "power2.inOut" }, 2.6);
+      tl.fromTo("#lp-l2", { opacity: 0 }, { opacity: 1, duration: 0.25 }, 3.0);
+      tl.fromTo("#lp-top", { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: 0.6, ease: "expo.out" }, 3.8);
+      tl.fromTo("#lp-l3", { opacity: 0 }, { opacity: 1, duration: 0.25 }, 3.9);
+      tl.fromTo("#lp-feed", { strokeDasharray: 260, strokeDashoffset: 260 }, { strokeDashoffset: 0, duration: 0.6, ease: "power2.inOut" }, 4.8);
+      tl.fromTo("#lp-valve", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 5.1);
+      tl.fromTo("#lp-basin", { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: 0.5, ease: "expo.out" }, 5.3);
+      tl.fromTo("#lp-l4", { opacity: 0 }, { opacity: 1, duration: 0.25 }, 5.3);
+      tl.fromTo("#lp-lip", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 6.1);
+      tl.fromTo("#lp-fall", { strokeDasharray: 300, strokeDashoffset: 300 }, { strokeDashoffset: 0, duration: 0.6, ease: "power3.in" }, 6.2);
+      tl.fromTo("#lp-l5", { opacity: 0 }, { opacity: 1, duration: 0.25 }, 6.5);
+      tl.fromTo("#lp-l6", { opacity: 0 }, { opacity: 1, duration: 0.25 }, 7.1);
+      // water starts moving round the loop
+      tl.fromTo("#lp-flow", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 7.4);
+      tl.fromTo(".lp-dash", { strokeDashoffset: 0 }, { strokeDashoffset: -34 * 40, duration: 6.6, ease: "none" }, 7.4);
+      tl.fromTo("#lp-facts", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.25, ease: "power4.out" }, 7.6);
+      tl.to("#lp-svg, #lp-title, #lp-sub, #lp-facts", { opacity: 0, filter: "blur(8px)", duration: 0.25, ease: "power3.in" }, 13.7);
+      window.__timelines["loop"] = tl;
+    })();
+  </script>
+</template>
